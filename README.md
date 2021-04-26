@@ -2,7 +2,7 @@
 
 To run the file on Google Colab or any IDE, you must first install the Tensorflow Examples module with:
 
-`pip install -q git+https://github.com/tensorflow/examples.git`
+`!pip install git+https://github.com/tensorflow/examples.git`
 
 I train and test this image segmentation model using the **Oxford-IIIT Pets dataset** (can be downloaded from Tensorflow Dataset)
 
