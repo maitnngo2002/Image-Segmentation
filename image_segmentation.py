@@ -73,11 +73,11 @@ OUTPUT_CHANNELS = 3
 base_model = tf.keras.applications.MobileNetV2(input_shape=[128, 128, 3], include_top= False)
 
 layer_names = [
-    'block_1_expand_relu',   # 64x64
-    'block_3_expand_relu',   # 32x32
-    'block_6_expand_relu',   # 16x16
-    'block_13_expand_relu',  # 8x8
-    'block_16_project',      # 4x4
+    'block_1_expand_relu',   
+    'block_3_expand_relu',   
+    'block_6_expand_relu',  
+    'block_13_expand_relu',  
+    'block_16_project',      
 ]
 base_model_outputs = [base_model.get_layer(name).output for name in layer_names]
 
@@ -148,7 +148,7 @@ class DisplayCallback(tf.keras.callbacks.Callback):
 
 EPOCHS = 20
 VAL_SUBSPLITS = 5
-VALIDATION_STEPS = info.splits['test'].num_examples
+VALIDATION_STEPS = info.splits['test'].num_examples // BATCH_SIZE // VAL_SUBSPLITS
 
 model_history = model.fit(train_dataset, epochs= EPOCHS, steps_per_epoch= STEPS_PER_EPOCH,
                           validation_steps = VALIDATION_STEPS,
